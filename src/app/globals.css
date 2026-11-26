@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/*
+ * Hybrid Athlete design tokens — see DESIGN_SYSTEM.md.
+ * Use them in Tailwind as: bg-bg, bg-surface, text-text, text-text-muted,
+ * border-border, bg-accent, text-accent-ink, etc.
+ */
+@theme {
+  /* Core palette */
+  --color-bg: #101214;
+  --color-surface: #191d20;
+  --color-surface-2: #22272b;
+  --color-border: #2c3236;
+  --color-text: #f5f6f4;
+  --color-text-muted: #929a9d;
+  --color-accent: #c6f135;
+  --color-accent-ink: #101214;
+
+  /* Status */
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+
+  /* Disciplines (charts and tags) */
+  --color-strength: #c6f135;
+  --color-running: #38bdf8;
+  --color-functional: #fb923c;
+  --color-recovery: #a78bfa;
+  --color-nutrition: #f472b6;
+
+  /* Fonts (loaded in layout.tsx with next/font) */
+  --font-sans: var(--font-inter), var(--font-plex-arabic), system-ui, sans-serif;
+  --font-display: var(--font-barlow), var(--font-plex-arabic), system-ui, sans-serif;
+  --font-arabic: var(--font-plex-arabic), var(--font-inter), system-ui, sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+html {
+  color-scheme: dark;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Arabic text gets a little more line height */
+:lang(ar) {
+  font-family: var(--font-arabic);
+  line-height: 1.7;
+}
+
+/* Stats never shift as numbers change */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
